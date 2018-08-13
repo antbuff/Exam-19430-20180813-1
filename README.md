@@ -1,11 +1,15 @@
 
 # 电影租赁系统
 
+项目地址：[https://github.com/antbuff/Exam-19430-20180813-1](https://github.com/antbuff/Exam-19430-20180813-1)
+
 ### 开发环境
 
+- OS：Mac OS
 - 开发工具：idea
 - 数据库：MySQL 8.0.12
     - 数据库配置文件位于***/util/database.properties
+- 框架：Servlet + JSP
 
 ### 功能完成度
 
