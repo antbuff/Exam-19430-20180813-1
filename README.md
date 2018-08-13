@@ -3,6 +3,8 @@
 
 项目地址：[https://github.com/antbuff/Exam-19430-20180813-1](https://github.com/antbuff/Exam-19430-20180813-1)
 
+截图位于screeshot文件夹中，README中已添加
+
 ### 开发环境
 
 - OS：Mac OS
