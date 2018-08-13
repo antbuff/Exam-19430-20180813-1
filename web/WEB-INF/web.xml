@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <welcome-file-list>
+        <welcome-file>html/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>Charset</filter-name>
+        <filter-class>com.lxx.exam.filter.CharsetFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Charset</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--权限认证-->
+    <filter>
+        <filter-name>Authen</filter-name>
+        <filter-class>com.lxx.exam.filter.AuthenFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Authen</filter-name>
+        <url-pattern>/film/*</url-pattern>
+        <servlet-name>Index</servlet-name>
+    </filter-mapping>
+
+    <error-page>
+        <error-code>400</error-code>
+        <location>/html/jsp/error/400.jsp</location>
+    </error-page>
+
+    <!--登陆注册-->
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.lxx.exam.servlet.customer.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/user/login.html</url-pattern>
+        <url-pattern>/user/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>com.lxx.exam.servlet.customer.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/user/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>com.lxx.exam.servlet.Index</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/index.html</url-pattern>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+
+    <!--Film相关-->
+    <!--列表-->
+    <servlet>
+        <servlet-name>FilmList</servlet-name>
+        <servlet-class>com.lxx.exam.servlet.film.Select</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FilmList</servlet-name>
+        <url-pattern>/film/list.html</url-pattern>
+    </servlet-mapping>
+    <!--编辑-->
+    <servlet>
+        <servlet-name>FilmEdit</servlet-name>
+        <servlet-class>com.lxx.exam.servlet.film.Update</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FilmEdit</servlet-name>
+        <url-pattern>/film/edit.html</url-pattern>
+        <url-pattern>/film/edit</url-pattern>
+    </servlet-mapping>
+    <!--添加-->
+    <servlet>
+        <servlet-name>FilmCreate</servlet-name>
+        <servlet-class>com.lxx.exam.servlet.film.Create</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FilmCreate</servlet-name>
+        <url-pattern>/film/add.html</url-pattern>
+        <url-pattern>/film/add</url-pattern>
+    </servlet-mapping>
+    <!--删除-->
+    <servlet>
+        <servlet-name>FilmDelete</servlet-name>
+        <servlet-class>com.lxx.exam.servlet.film.Delete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FilmDelete</servlet-name>
+        <url-pattern>/film/delete</url-pattern>
+    </servlet-mapping>
+</web-app>
